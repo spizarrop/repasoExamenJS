@@ -25,14 +25,13 @@ const tiendas = new Map([
 
 /**
  * ACT 1 - EXTRA: Calcular las ganancias totales por tienda.
- * Usa forEach() sobre el Map y reduce() sobre el array de juegos para calcular
  * la suma total de dinero generado (precio * vendidos) en cada tienda.
  */
 function gananciasTotales() {
     let gananciasTienda = [];
     tiendas.forEach((tienda, id) => {
-        let ganancias = tienda.map(juego => juego.precio * juego.vendidos).reduce((acc, juego) => acc + juego, 0);
-        //let ganancias = tienda.reduce((acc, juego) => acc + juego.precio * juego.vendidos, 0);
+        //let ganancias = tienda.map(juego => juego.precio * juego.vendidos).reduce((acc, juego) => acc + juego, 0);
+        let ganancias = tienda.reduce((acc, juego) => acc + juego.precio * juego.vendidos, 0);
         gananciasTienda.push({ nombre: id, gananciaTotal: ganancias });
     });
     console.log(gananciasTienda);
@@ -54,7 +53,6 @@ function juegoAgotado() {
 juegoAgotado();
 /**
  * ACT 3 - EXTRA: Listar todos los juegos de un género específico (por ejemplo "RPG")
- * recorriendo todas las tiendas. Usa for...of sobre el Map.
  */
 function listarJuegosGenero(nombreGenero) {
     let listaJuegos = [];
@@ -70,7 +68,6 @@ listarJuegosGenero("RPG");
 
 /**
  * ACT 4 - EXTRA: Calcular el promedio de precios por tienda.
- * Usa map(), reduce() y length para obtener el promedio del precio de los juegos en cada tienda.
  */
 function promedioPrecios() {
     let promedioJuegos = [];
@@ -92,8 +89,8 @@ function juegosMasVendidos() {
         if (tienda.some(juego => juego.vendidos > 50)) {
             let vendido = tienda.filter(juegos => juegos.vendidos > 50);
             masVendidos.set(id, vendido);
-        }
+        } 
     });
     console.log(masVendidos);
 }
-//juegosMasVendidos();
+juegosMasVendidos();
