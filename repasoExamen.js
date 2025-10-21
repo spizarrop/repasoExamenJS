@@ -147,6 +147,24 @@ datosActores();
  Crea una función que devuelva un objeto con los géneros como claves y la cantidad de películas distintas por género como valor.
  📍 (1 punto) */
 
+function obtenerGeneros() {
+    let cantidad = 1;
+    let generoPelicula = "";
+    let pelis = {};
+
+    peliculas.forEach(pelicula => {
+        if(!Object.hasOwnProperty(pelicula.genero)){
+            pelis.genero = pelicula.genero;
+            pelis.cantidad = cantidad;
+        }else{
+            pelis.cantidad = cantidad++;
+        }
+    });
+
+    console.log(pelis);
+}
+obtenerGeneros();
+
 /* Ejercicio 5.
  Crea una función que indique qué película tiene la mayor recaudación sin superar los 500 millones de dólares, y que se aproxime más a ese límite sin pasarlo.
  📍 (2 puntos)
