@@ -134,7 +134,7 @@ function datosActores() {
     });
 
     actores.forEach(actor => {
-        if(!actoresNoRepetidos.includes(actor.nombre)){
+        if (!actoresNoRepetidos.includes(actor.nombre)) {
             actoresNoRepetidos.push(actor);
         }
     });
@@ -147,7 +147,32 @@ datosActores();
  Crea una función que devuelva un objeto con los géneros como claves y la cantidad de películas distintas por género como valor.
  📍 (1 punto) */
 
+function generoCantidad() {
+    let pelis = {};
+    let cantidad = 1;
+
+    peliculas.forEach(pelicula => {
+
+        if (!Object.hasOwn(pelis, pelicula.genero)) {
+            pelis[pelicula.genero] = cantidad;
+        } else {
+            pelis[pelicula.genero] = cantidad + 1;
+        }
+
+    });
+
+    console.log(pelis);
+}
+generoCantidad();
+
 /* Ejercicio 5.
  Crea una función que indique qué película tiene la mayor recaudación sin superar los 500 millones de dólares, y que se aproxime más a ese límite sin pasarlo.
  📍 (2 puntos)
  */
+
+function mayorRecaudacion() {
+    let mayorRecaudacion = peliculas.filter(peli => peli.recaudacion <= 500).sort((a, b) => b.recaudacion - a.recaudacion)[0];
+
+    console.log(mayorRecaudacion);
+}
+mayorRecaudacion();
