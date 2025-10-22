@@ -159,8 +159,9 @@ function generoCantidad() {
             pelis[pelicula.genero] = cantidad + 1;
         }
 
-        console.log(pelis);
     });
+    
+    console.log(pelis);
 }
 generoCantidad();
 
