@@ -159,11 +159,11 @@ function generoCantidad() {
             pelis[pelicula.genero] = cantidad + 1;
         }
 
+        console.log(pelis);
     });
-
-    console.log(pelis);
 }
 generoCantidad();
+
 
 /* Ejercicio 5.
  Crea una función que indique qué película tiene la mayor recaudación sin superar los 500 millones de dólares, y que se aproxime más a ese límite sin pasarlo.
